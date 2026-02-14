@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kusum ❤️ Proposal</title>
+<style>
+body {
+  margin:0; padding:0; text-align:center;
+  font-family: Arial, sans-serif; background:black;
+  color:white; overflow:hidden;
+}
+
+/* Stars */
+.star {
+  position:absolute; width:2px; height:2px;
+  background:white; animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle { from { opacity:0.2; } to { opacity:1; } }
+
+/* ISKO DHAYAN SE DEKHEIN: Shuruat mein content chhupa diya gaya hai */
+#main-content {
+  display: none; 
+  margin-top:100px;
+  position:relative;
+  z-index:2;
+}
+
+.glow {
+  font-size:50px; color:red;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow:0 0 10px red; }
+  to { text-shadow:0 0 30px pink; }
+}
+
+button {
+  padding:12px 25px; font-size:18px; margin:10px;
+  border:none; border-radius:25px; cursor:pointer;
+}
+
+#yes { background:red; color:white; }
+#no { background:white; color:red; }
+
+.ring { font-size:70px; animation: ring 2s infinite; }
+
+@keyframes ring {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(-15deg); }
+  100% { transform: rotate(0); }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="YOUR_SONG_LINK.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Password Logic
+window.onload = function() {
+  var pass = prompt("Enter Secret Love Password 💕");
+  
+  if(pass === "shivamkusum"){
+    // Agar sahi hai toh content dikhao
+    document.getElementById("main-content").style.display = "block";
+    // Music play karne ki koshish (Browser settings par depend karta hai)
+    document.getElementById("bgMusic").play();
+  } else {
+    // Agar galat hai toh Access Denied
+    alert("Wrong Password 😜");
+    document.body.innerHTML = "<h1 style='color:white;margin-top:200px;'>Access Denied ❌<br><small style='font-size:15px'>Please refresh and try again.</small></h1>";
+  }
+
+  // Stars hamesha background mein rahenge
+  for(let i=0;i<100;i++){
+    let star = document.createElement("div");
+    star.className="star";
+    star.style.top=Math.random()*100+"vh";
+    star.style.left=Math.random()*100+"vw";
+    document.body.appendChild(star);
+  }
+}
+</script>
+
+<div id="main-content">
+  <h1 class="glow">Kusum ❤️</h1>
+  <div class="ring">💍</div>
+
+  <p>
+  Kusum, tum meri zindagi ho ✨<br>  
+  Kya tum hamesha mere saath rahogi? 💖
+  </p>
+
+  <button id="yes" onclick="celebrate()">Yes ❤️</button>
+  <button id="no" onmouseover="moveButton()">No 😜</button>
+</div>
+
+<script>
+function moveButton(){
+  var btn=document.getElementById("no");
+  btn.style.position="absolute";
+  btn.style.top=Math.random()*window.innerHeight+"px";
+  btn.style.left=Math.random()*window.innerWidth+"px";
+}
+
+function celebrate(){
+  alert("She Said YESSSS 💍❤️ Forever Shivam & Kusum 🎆");
+  for(let i=0;i<50;i++){
+    let fire=document.createElement("div");
+    fire.innerHTML="💖";
+    fire.style.position="absolute";
+    fire.style.left=Math.random()*100+"vw";
+    fire.style.top=Math.random()*100+"vh";
+    fire.style.fontSize="25px";
+    document.body.appendChild(fire);
+    setTimeout(()=>fire.remove(),2000);
+  }
+}
+</script>
+
+</body>
+</html>
